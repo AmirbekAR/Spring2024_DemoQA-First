@@ -10,6 +10,7 @@
             <class name="basic_locators.ByLinkedTextDemo"/>
             <class name="basic_locators.ByNameDemo"/>
             <class name="basic_locators.ByTagNameDemo"/>
+            <class name="some_webs.AmazonTests"/>
         </classes>
     </test>
 </suite>
