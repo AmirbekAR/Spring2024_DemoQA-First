@@ -11,7 +11,7 @@ import java.time.Duration;
 public class ChromeDriver {
 
     public static WebDriver loadChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
 
 //        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--remote-allow-origin=*"); //

@@ -12,7 +12,7 @@ import java.time.Duration;
 public class FireFoxWebDriver {
 
     public static WebDriver loadFirefoxDriver() {
-        System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
+        System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/geckodriver");
 
 
 //        FirefoxOptions options = new FirefoxOptions();
