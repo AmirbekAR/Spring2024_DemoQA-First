@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5464cfe1-fe43-4f3d-a64c-bb7464d5dd77" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="package-info" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2mn9c9tp55Zbq6bQt67KRgEM2Tx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TestNG./Users/amir/IdeaProjects/SJava/DemoQA First/src/test/resources/test_suites/regression_suite.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG./Users/amir/IdeaProjects/SJava/DemoQA First/src/test/resources/test_suites/smoke_suite.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AccordianTests.accordianTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AlertTest.alertTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AmazonTests.amazonTest2.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AmazonTests.amazonTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AmazonTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AutoCompleteTest.colorNamesTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.BasicAutDemo.basicAutTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.BrowserWindowTest.windowTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ButtonsTest.testButtons.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ByClassDemo.byClassDemoTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ByIdDemo.byIdDemoTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ByLinkedTextDemo.byLinkedTextTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ByTegName.byTegNameTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CssSelectorDemo.cssSelectorTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CssSelectorDemoDemo.cssSelectorDemoTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DemoQA.demo1.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DemoQA.demo2.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DemoQA.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FramesTest.testFrames.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FromPageTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FromPageTests.testFromPage.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.MenuTests.menuTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.PartialLinkTextDemo.partialLinkedTextTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.PracticeFormTest.practiceFormTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.SelectMenuTest.clickSelectOneOptions.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.SelectMenuTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.SelectMenuTest.multiSelectDropDown.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.SelectMenuTest.multiSelectDropDownTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.SelectMenuTest.selectMenuTest (1).executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.SelectMenuTest.selectMenuTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.SelectMenuTest.selectTitleTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.SelectMenuTest.selectValueTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.SelectMenuTest.standardMultiSelectTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.SwisTradeWork.swisTradeTest1.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TabsTests.tabsTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TextBoxTests.testDriver.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TextBoxTests.testTexBox2.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TextBoxTests.textTextBox.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WebTablesTest.webTableTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.XpathDemo.amazonXPathTest.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/amir/IdeaProjects/SJava/DemoQA First/src/test&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/amir/IdeaProjects/SJava/DemoQA/src/main/java/com/digital_nomads/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java" />
+      <recent name="$PROJECT_DIR$/src/main/resources/drivers" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="demoqa.enums" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG./Users/amir/IdeaProjects/SJava/DemoQA First/src/test/resources/test_suites/regression_suite.xml">
+    <configuration name="AmazonTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="DemoQA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="some_webs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="some_webs" />
+      <option name="MAIN_CLASS_NAME" value="some_webs.AmazonTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AmazonTests.amazonTest2" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="DemoQA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="some_webs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="some_webs" />
+      <option name="MAIN_CLASS_NAME" value="some_webs.AmazonTests" />
+      <option name="METHOD_NAME" value="amazonTest2" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AmazonTests.amazonTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="DemoQA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="some_webs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="some_webs" />
+      <option name="MAIN_CLASS_NAME" value="some_webs.AmazonTests" />
+      <option name="METHOD_NAME" value="amazonTests" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="/Users/amir/IdeaProjects/SJava/DemoQA First/src/test/resources/test_suites/regression_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="DemoQA" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/test_suites/regression_suite.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="/Users/amir/IdeaProjects/SJava/DemoQA First/src/test/resources/test_suites/smoke_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="DemoQA" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/test_suites/smoke_suite.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG./Users/amir/IdeaProjects/SJava/DemoQA First/src/test/resources/test_suites/regression_suite.xml" />
+        <item itemvalue="TestNG./Users/amir/IdeaProjects/SJava/DemoQA First/src/test/resources/test_suites/smoke_suite.xml" />
+        <item itemvalue="TestNG.AmazonTests.amazonTests" />
+        <item itemvalue="TestNG.AmazonTests.amazonTest2" />
+        <item itemvalue="TestNG.AmazonTests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5464cfe1-fe43-4f3d-a64c-bb7464d5dd77" name="Changes" comment="" />
+      <created>1727701550082</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727701550082</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/digital_nomads/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DemoQA_First$_Users_amir_IdeaProjects_SJava_DemoQA_First_src_test_resources_test_suites_regression_suite_xml.ic" NAME="$PROJECT_DIR$/src/test/resources/test_suites/regression_suite.xml Coverage Results" MODIFIED="1728362358952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+  </component>
+</project>
