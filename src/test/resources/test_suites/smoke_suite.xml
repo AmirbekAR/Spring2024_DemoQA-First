@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/amir/Desktop/DemoQA">
+        <classes>
+            <class name="advanced_locators.CssSelectorDemo"/>
+            <class name="advanced_locators.XpathDemo"/>
+            <class name="basic_locators.ByClassDemo"/>
+            <class name="basic_locators.ByIdDemo"/>
+            <class name="basic_locators.ByLinkedTextDemo"/>
+            <class name="basic_locators.ByNameDemo"/>
+            <class name="basic_locators.ByTagNameDemo"/>
+        </classes>
+    </test>
+</suite>
