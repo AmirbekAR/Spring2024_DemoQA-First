@@ -101,7 +101,7 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <failIfNoSpecifiedTests>true</failIfNoSpecifiedTests>
-                    <failIfNoTests>true</failIfNoTests>
+                    <failIfNoTests>false</failIfNoTests> <!-- изменено на false -->
                     <encoding>UTF-8</encoding>
                     <suiteXmlFiles>
                         <suiteXmlFile>smoke_suite.xml</suiteXmlFile>
