@@ -1,10 +1,7 @@
 package demoqa_tests;
 
 import demoqa.data.MockDataRegistrationForm;
-import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
-
-import static demoqa_tests.SelectMenuTest.log;
 
 public class WebTablesTest extends BaseTest {
 

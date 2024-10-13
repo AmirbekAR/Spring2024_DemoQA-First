@@ -1,13 +1,7 @@
 package demoqa_tests;
 
 import demoqa.data.MockDataGenerator;
-import demoqa.drivers.DriverManager;
-import demoqa.entities.TextBox;
 import demoqa.pages.TextBoxPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class TextBoxTests extends BaseTest {
@@ -23,8 +17,7 @@ public class TextBoxTests extends BaseTest {
                 .inputPermanentAddress("Some permanent address")
                 .submit();
         Thread.sleep(5000);
-
-    }
+        }
 
     @Test
     void testTexBox2() throws InterruptedException {
@@ -32,13 +25,6 @@ public class TextBoxTests extends BaseTest {
         demoqaPages.getTextBoxPage().fillTextBoxForm(MockDataGenerator.randomTextBox());
         Thread.sleep(2000);
 
-    }
-    @AfterClass
-    public void tearDown() {
-        // Закрытие WebDriver
-        if (driver != null) {
-            driver.quit();
-        }
     }
 }
 
