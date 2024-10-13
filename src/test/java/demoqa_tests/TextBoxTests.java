@@ -10,13 +10,12 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class TextBoxTests extends BaseTest {
-    WebDriver driver = DriverManager.getDriver();
     TextBoxPage textBoxPage = new TextBoxPage();
 
 
     @Test
     public void textTextBox() throws InterruptedException {
-        driver.get("https://demoqa.com/text-box");
+        helper.browserManager.openURL("https://demoqa.com/text-box");
         textBoxPage.inputUserName("Lee Child")
                 .inputUserEmail("leeChild@gmail.com")
                 .inputCurrentAddress("Wall street 123")
@@ -28,7 +27,7 @@ public class TextBoxTests extends BaseTest {
 
     @Test
     void testTexBox2() throws InterruptedException {
-        driver.get("https://demoqa.com/text-box");
+        helper.browserManager.openURL("https://demoqa.com/text-box");
         demoqaPages.getTextBoxPage().fillTextBoxForm(MockDataGenerator.randomTextBox());
         Thread.sleep(2000);
 
@@ -39,9 +38,4 @@ public class TextBoxTests extends BaseTest {
         driver.close();
     }
 
-    @Test
-    public void testDriver(){
-        WebDriver driver = new FirefoxDriver();
-        driver.get("https://www.example.com");
-    }
 }

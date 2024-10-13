@@ -8,19 +8,19 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import java.time.Duration;
 
 public class FireFoxWebDriver {
+
     public static WebDriver loadFirefoxDriver() {
         System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/geckodriver");
 
         FirefoxOptions options = new FirefoxOptions();
         options.addArguments("--window-size=1920,1080");
 
-        // Пример добавления параметров для headless режима
+        // Параметры для headless режима
         if (Boolean.parseBoolean(ConfigReader.getValue("headless"))) {
             options.addArguments("--headless");
         }
-        System.out.println("Запускаем Firefox...");
-        WebDriver driver = new FirefoxDriver(options);
-        System.out.println("Firefox запущен.");
+
+        WebDriver driver = new FirefoxDriver(options); // Полный путь
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         return driver;
