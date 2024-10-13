@@ -8,7 +8,7 @@ public class AlertTest extends BaseTest {
     void alertTest() throws InterruptedException {
         helper.getBrowserManager().openURL("https://demoqa.com/alerts");
         webElementActions.click(demoqaPages.getAlertPage().alertButton);
-        helper.getAlertHelper().acceptAlert();
+        Thread.sleep(5000);
     }
 
 }

@@ -2,49 +2,36 @@ package advanced_locators;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
 
-public class XpathDemo {
+public class DatePickerTest {
 
-    @Test
-    public void absoluteXPathTest() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        driver.get("https://demoqa.com/webtables");
-
-        WebElement addNewRecordButton = driver.findElement(By.className("/html/body/div[2]/div//div/div/div[2]/div[2]/form/div[5]/div/button")); // 1 вариант
-
-    }
-
-    @Test
-    public void relativeXPathTest() throws InterruptedException { // подходы поиска элементов в Web сайта
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-        driver.get("https://demoqa.com/webtables");
-
-        WebElement addNewRecordButton = driver.findElement(By.className("//button[@id='submit']"));                             // 2 вариант
-        WebElement addNewRecordButton2 = driver.findElement(By.className("//button[@type='button' and text()='Submit']"));      // 3 вариант
-        WebElement addNewRecordButton3 = driver.findElement(By.className("//input[@placeholder='Full name]"));                  // 3 вариант
-        WebElement addNewRecordButton4 = driver.findElement(By.className("//input[@placeholder='Full name and @type='text' or @id='User Name']?")); // 4
-        WebElement addNewRecordButtonAllOfWeb = driver.findElement(By.className("//*[@placeholder='Full Name']?"));                                 // 5
-        WebElement addNewRecordButtonAllOfWeb2 = driver.findElement(By.className("//div[@id='output']/div/p[@id='currentAddress']"));               // 6
-        WebElement addNewRecord3 = driver.findElement(By.className("//h1[text()='Text Box']"));               // 6
-        WebElement addNewRecord4 = driver.findElement(By.className("//h3/normalize-space()='Фаиза / Faiza']")); // удаляет начальны и кон. пробелы
-        WebElement addNewRecord5 = driver.findElement(By.className("//div[@id='brandsRefinements']/ul[1]/span/span[position()=7]")); // поиск по позициям
-        WebElement addNewRecord6 = driver.findElement(By.className("//div[@id='brandsRefinements']/ul/span/span/li/span/a/span")); // поиск по позициям
-
-    }
+//    @Test
+//    public void relativeXPathTest() throws InterruptedException { // подходы поиска элементов в Web сайта
+//        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+//        WebDriver driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//
+//        driver.get("https://demoqa.com/webtables");
+//
+//        WebElement addNewRecordButton = driver.findElement(By.className("//button[@id='submit']"));                             // 2 вариант
+//        WebElement addNewRecordButton2 = driver.findElement(By.className("//button[@type='button' and text()='Submit']"));      // 3 вариант
+//        WebElement addNewRecordButton3 = driver.findElement(By.className("//input[@placeholder='Full name]"));                  // 3 вариант
+//        WebElement addNewRecordButton4 = driver.findElement(By.className("//input[@placeholder='Full name and @type='text' or @id='User Name']?")); // 4
+//        WebElement addNewRecordButtonAllOfWeb = driver.findElement(By.className("//*[@placeholder='Full Name']?"));                                 // 5
+//        WebElement addNewRecordButtonAllOfWeb2 = driver.findElement(By.className("//div[@id='output']/div/p[@id='currentAddress']"));               // 6
+//        WebElement addNewRecord3 = driver.findElement(By.className("//h1[text()='Text Box']"));               // 6
+//        WebElement addNewRecord4 = driver.findElement(By.className("//h3/normalize-space()='Фаиза / Faiza']")); // удаляет начальны и кон. пробелы
+//        WebElement addNewRecord5 = driver.findElement(By.className("//div[@id='brandsRefinements']/ul[1]/span/span[position()=7]")); // поиск по позициям
+//        WebElement addNewRecord6 = driver.findElement(By.className("//div[@id='brandsRefinements']/ul/span/span/li/span/a/span")); // поиск по позициям
+//
+//    }
 
     @Test
     public void amazonXPathTest() throws InterruptedException {

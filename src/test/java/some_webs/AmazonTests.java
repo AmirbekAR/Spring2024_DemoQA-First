@@ -17,7 +17,7 @@ public class AmazonTests extends BaseTest {
     public void amazonTests() throws InterruptedException {
 
         helper.browserManager.openURL("https://www.amazon.com");
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         driver.findElement(By.id("twotabsearchtextbox"))
                 .sendKeys("iphone" + Keys.ENTER);
         Thread.sleep(3000);

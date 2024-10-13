@@ -8,4 +8,13 @@ public class AlertPage extends BasePage{
     @FindBy(id = "alertButton")
     public WebElement alertButton;
 
+    @FindBy(id = "timerAlertButton")
+    public WebElement timerAlertButton;
+
+    @FindBy(id = "confirmButton")
+    public WebElement confirmButton;
+
+    @FindBy(id = "promtButton")
+    public WebElement promtButton;
+
 }

@@ -1,21 +1,20 @@
 package basic_locators;
 
+import demoqa.pages.BasePage;
+import demoqa_tests.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ByIdDemo {
+public class ByIdDemo extends BaseTest {
 
     @Test
     public void byIdDemoTest() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.get("https://demoqa.com/text-box");
+        helper.browserManager.openURL("https://demoqa.com/text-box");
 
         // Ввод данных
         String fullName = "Timur Demirov";
@@ -33,9 +32,8 @@ public class ByIdDemo {
         String permanentAddressStr = "Gorkogo, 174";
         WebElement permanentAddressInput = driver.findElement(By.id("permanentAddress"));
         permanentAddressInput.sendKeys(permanentAddressStr);
-
-        WebElement submitButton = driver.findElement(By.id("submit"));
-        submitButton.click();
+        permanentAddressInput.sendKeys(Keys.TAB);
+        permanentAddressInput.sendKeys(Keys.ENTER);
 
         // Проверка имени
         String actualName = driver.findElement(By.xpath("//p[@id='name']")).getText().split(":")[1].trim();
@@ -65,7 +63,5 @@ public class ByIdDemo {
         String actualPermanentAddress = permanentAddressParts[1].trim();
         Assert.assertEquals(actualPermanentAddress, permanentAddressStr);
 
-        driver.close();
-        driver.quit();
     }
 }

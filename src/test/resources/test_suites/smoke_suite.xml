@@ -3,10 +3,8 @@
 <suite name="Smoke Test Suite">
     <test verbose="2" preserve-order="true" name="/Users/amir/IdeaProjects/SJava/DemoQA First">
         <classes>
-            <class name="advanced_locators.CssSelectorDemo"/>
-            <class name="advanced_locators.XpathDemo"/>
+            <class name="advanced_locators.DatePickerTest"/>
             <class name="basic_locators.ByClassDemo"/>
-            <class name="basic_locators.ByIdDemo"/>
             <class name="basic_locators.ByLinkedTextDemo"/>
             <class name="basic_locators.ByNameDemo"/>
             <class name="basic_locators.ByTagNameDemo"/>

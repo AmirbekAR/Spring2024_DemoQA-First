@@ -15,7 +15,7 @@ public class MenuTests extends BaseTest {
             helper.webElementActions.isElementVisible(demoqaPages.menuPages.mainItem2); // курсор на "Main Item 2"
             helper.webElementActions.scrollToElement(demoqaPages.menuPages.mainItem2);
             actions.moveToElement(demoqaPages.menuPages.mainItem2).perform();
-            Thread.sleep(3000);
+               Thread.sleep(3000);
 
             helper.webElementActions.isElementVisible(demoqaPages.menuPages.SubItem2);
             actions.moveToElement(demoqaPages.menuPages.SubItem2).perform();

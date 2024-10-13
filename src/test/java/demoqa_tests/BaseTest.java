@@ -27,9 +27,10 @@ import org.testng.annotations.BeforeClass;
             selectMenuPage = new SelectMenuPage();
         }
 
-        @AfterClass(alwaysRun = true)
+        @AfterClass
         public void tearDown() {
-            driver.close();
-
-    }
+            if (driver != null) {
+                driver.quit(); // или driver.close() в зависимости от вашей логики
+            }
+        }
 }
