@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Simple Test Suite">
-    <test name="Simple Test">
-        <classes>
-            <class name="some_webs.AmazonTests"/> <!-- Проверьте, работает ли только этот тест -->
-        </classes>
-    </test>
-</suite>
