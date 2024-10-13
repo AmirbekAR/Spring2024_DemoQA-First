@@ -28,9 +28,7 @@ import org.testng.annotations.BeforeClass;
         }
 
         @AfterClass
-        public void tearDown() {
-            if (driver != null) {
-                driver.quit(); // или driver.close() в зависимости от вашей логики
+            public void tearDown () {
+                DriverManager.closeDriver(); // Используем DriverManager для закрытия драйвера
             }
         }
-}

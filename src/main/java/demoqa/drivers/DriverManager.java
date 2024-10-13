@@ -5,29 +5,33 @@ import org.openqa.selenium.WebDriver;
 
 public class DriverManager {
 
-    private static WebDriver driver;
+    // ThreadLocal для поддержки многопоточности
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
+    // Получаем экземпляр драйвера
     public static WebDriver getDriver() {
-        if (driver == null) {
+        if (driver.get() == null) {
+            System.out.println("Initializing WebDriver");
             switch (ConfigReader.getValue("browser").toLowerCase()) {
                 case "chrome":
-                    driver = ChromeWebDriver.loadChromeDriver();
+                    driver.set(ChromeWebDriver.loadChromeDriver());
                     break;
                 default:
                     throw new IllegalArgumentException("Unsupported browser: " + ConfigReader.getValue("browser"));
             }
         }
-        return driver;
+        return driver.get();
     }
 
+    // Закрываем драйвер
     public static void closeDriver() {
         try {
-            if (driver != null) {
-                driver.close();
-                driver.quit();
-                driver = null;
+            if (driver.get() != null) {
+                System.out.println("Closing WebDriver");
+                driver.get().quit();
+                driver.remove(); // Удаляем драйвер из ThreadLocal
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
