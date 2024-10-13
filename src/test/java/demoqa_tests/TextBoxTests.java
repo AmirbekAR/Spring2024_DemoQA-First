@@ -6,6 +6,7 @@ import demoqa.entities.TextBox;
 import demoqa.pages.TextBoxPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -32,4 +33,12 @@ public class TextBoxTests extends BaseTest {
         Thread.sleep(2000);
 
     }
+    @AfterClass
+    public void tearDown() {
+        // Закрытие WebDriver
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
+
