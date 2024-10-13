@@ -13,10 +13,18 @@ public class ScreenshotListener implements ITestListener {
 
     WebDriver driver = DriverManager.getDriver();
 
+    public ScreenshotListener() {
+        driver = DriverManager.getDriver();
+    }
+
     @Override
     public void onTestFailure(ITestResult result) {
-        if (driver != null) {
-            saveScreenshotPNG();
+        try {
+            if (driver != null) {
+                saveScreenshotPNG();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
