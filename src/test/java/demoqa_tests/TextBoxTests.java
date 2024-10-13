@@ -32,10 +32,4 @@ public class TextBoxTests extends BaseTest {
         Thread.sleep(2000);
 
     }
-
-    @AfterTest
-    public void tearDown() {
-        driver.close();
-    }
-
 }
