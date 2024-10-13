@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PracticeFromPage {
+public class PracticeFromPage extends BasePage {
     WebElementActions webElementActions = new WebElementActions();
 
     public PracticeFromPage() {

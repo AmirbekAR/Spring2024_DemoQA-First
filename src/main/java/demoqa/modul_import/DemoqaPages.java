@@ -17,6 +17,7 @@ public class DemoqaPages {
     public PracticeFormPage2 practiceFormPage2;
     public WebTablesPage webTablesPage;
     public AmazonPage amazonPage;
+    public PracticeFromPage practiceFromPage;
 
 
     public DemoqaPages() {
@@ -32,6 +33,7 @@ public class DemoqaPages {
         practiceFormPage2 = new PracticeFormPage2();
         webTablesPage = new WebTablesPage();
         amazonPage = new AmazonPage();
+        practiceFromPage = new PracticeFromPage();
     }
 
     public WebTablesPage getWebTablesPage() {

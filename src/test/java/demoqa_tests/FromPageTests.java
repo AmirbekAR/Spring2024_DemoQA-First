@@ -1,9 +1,6 @@
 package demoqa_tests;
 
-import demoqa.drivers.DriverManager;
-import demoqa.pages.PracticeFromPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,16 +9,13 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class FromPageTests {
-    WebDriver driver = DriverManager.getDriver();
-    PracticeFromPage fromPage = new PracticeFromPage();
+public class FromPageTests extends BaseTest{
 
     @Test
     public void testFromPage() throws InterruptedException {
-        driver.get("https://demoqa.com/automation-practice-form");
+        helper.browserManager.openURL("https://demoqa.com/automation-practice-form");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-        fromPage.inputFirstName("Timur")
+        demoqaPages.practiceFromPage.inputFirstName("Timur")
                 .inputLastName("Timurov")
                 .inputUserEmail("timurTT@gmail.com")
                 .genderMale()
@@ -57,7 +51,5 @@ public class FromPageTests {
         Assert.assertEquals(resultAddress.getText(), "Some address");
         Assert.assertTrue(resultStateCity.getText().contains("NCR"));
         Assert.assertTrue(resultStateCity.getText().contains("Delhi"));
-
-         driver.close();
     }
 }

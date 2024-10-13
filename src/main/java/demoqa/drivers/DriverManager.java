@@ -10,7 +10,9 @@ public class DriverManager {
 
     // Получаем экземпляр драйвера
     public static WebDriver getDriver() {
-        if (driver.get() == null) {
+        WebDriver currentDriver = driver.get();
+
+        if (currentDriver == null || !isDriverActive(currentDriver)) {
             System.out.println("Initializing WebDriver");
             switch (ConfigReader.getValue("browser").toLowerCase()) {
                 case "chrome":
@@ -24,6 +26,17 @@ public class DriverManager {
             }
         }
         return driver.get();
+    }
+
+    // Проверка, активен ли драйвер
+    private static boolean isDriverActive(WebDriver driver) {
+        try {
+            // Пробуем получить текущий URL; если драйвер не активен, это вызовет исключение
+            driver.getCurrentUrl();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     // Закрываем драйвер
