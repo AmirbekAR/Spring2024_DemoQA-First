@@ -7,6 +7,11 @@
             <class name="basic_locators.ByLinkedTextDemo"/>
             <class name="basic_locators.ByNameDemo"/>
             <class name="some_webs.AmazonTests"/>
+            <class name="demoqa_tests.AccordianTests"/>
+            <class name="demoqa_tests.AlertTest"/>
+            <class name="demoqa_tests.AutoCompleteTest"/>
+            <class name="demoqa_tests.BrowserWindowTest"/>
+            <class name="demoqa_tests.ButtonsTest"/>
         </classes>
     </test>
 </suite>

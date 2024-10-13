@@ -17,7 +17,6 @@ public class AutoCompleteTest extends BaseTest {
         helper.browserManager.openURL("https://demoqa.com/auto-complete");
         helper.webElementActions.click(demoqaPages.autoCompletePage.colorClick);
         demoqaPages.autoCompletePage.colorClick.click();
-
         demoqaPages.autoCompletePage.colorClick.click();
 
     }
