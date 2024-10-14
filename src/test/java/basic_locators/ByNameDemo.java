@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class ByNameDemo extends BaseTest {
 
-    @Test
+    @Test(groups = {"UI", "TC-3"})
     public void demo1() throws InterruptedException {
 
        helper.browserManager.openURL("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");

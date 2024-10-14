@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DatePickerTest extends BaseTest {
 
-    @Test
+    @Test(groups = {"UI", "TC-1"})
     public void amazonXPathTest() throws InterruptedException {
         helper.browserManager.openURL("https://demoqa.com/date-picker");
 

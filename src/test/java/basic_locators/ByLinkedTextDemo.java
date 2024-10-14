@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class ByLinkedTextDemo extends BaseTest {
 
-    @Test
+    @Test(groups = {"UI", "TC-2"})
     public void byLinkedTextTest() throws InterruptedException {
       helper.browserManager.openURL("https://demoqa.com/links");
         WebElement homeLink = driver.findElement(By.linkText("Home")); // поиск по названию ссылки
