@@ -1,11 +1,9 @@
 package demoqa_tests;
 
 import demoqa.data.MockDataGeneratorForPractice;
-import demoqa.pages.PracticeFromPage;
 import org.testng.annotations.Test;
 
 public class PracticeFormTest extends BaseTest {
-    PracticeFromPage fromPage = new PracticeFromPage();
 
     @Test
     public void practiceFormTest() throws InterruptedException {
@@ -15,7 +13,7 @@ public class PracticeFormTest extends BaseTest {
         Thread.sleep(5000);
         helper.webElementActions.scrollToElement(demoqaPages.getPracticeFormPage2().dateOfBirth);
         Thread.sleep(5000);
-        fromPage.genderMale()
+        demoqaPages.practiceFromPage.genderMale()
                 .inputDateOfBirth("06 Sep 1983")
                 .inputSubject("Maths")
                 .hobbiesCheckbox1()
