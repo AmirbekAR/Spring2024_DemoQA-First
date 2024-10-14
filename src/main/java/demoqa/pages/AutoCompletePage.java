@@ -10,7 +10,7 @@ import java.util.TreeSet;
 
 public class AutoCompletePage extends BasePage {
 
-    @FindBy(id = "autoCompleteMultipleContainer")
+    @FindBy(xpath = "//div[@id='autoCompleteMultipleContainer']//div[@class='auto-complete__control css-yk16xz-control']")
     public WebElement colorClick;
 
     @FindBy(css = ".css-19bqh2r[height='20']")

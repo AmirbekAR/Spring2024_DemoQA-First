@@ -49,19 +49,16 @@
             <artifactId>allure-testng</artifactId>
             <version>2.20.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.35</version>
         </dependency>
-
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
-
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
@@ -72,7 +69,6 @@
             <artifactId>selenium-devtools-v129</artifactId>
             <version>4.25.0</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -94,15 +90,7 @@
                     <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
                     <failIfNoTests>false</failIfNoTests>
                     <encoding>UTF-8</encoding>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/test_suites/smoke_suite.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/resources/test_suites/regression_suite.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/resources/test_suites/pipeline_suite.xml</suiteXmlFile>
-                    </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
@@ -122,12 +110,17 @@
     <profiles>
         <profile>
             <id>Smoke</id>
+            <activation>
+                <property>
+                    <name>TEST_GROUP</name>
+                    <value>Smoke</value>
+                </property>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M5</version>
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>src/test/resources/test_suites/smoke_suite.xml</suiteXmlFile>
@@ -140,12 +133,17 @@
 
         <profile>
             <id>Regression</id>
+            <activation>
+                <property>
+                    <name>TEST_GROUP</name>
+                    <value>Regression</value>
+                </property>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M5</version>
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>src/test/resources/test_suites/regression_suite.xml</suiteXmlFile>
@@ -156,40 +154,27 @@
             </build>
         </profile>
 
-    <profile>
-        <id>And2And</id>
-        <build>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0-M5</version>
-                    <configuration>
-                        <suiteXmlFiles>
-                            <suiteXmlFile>src/test/resources/test_suites/e2e_suite.xml</suiteXmlFile>
-                        </suiteXmlFiles>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </build>
-    </profile>
-
-    <profile>
-        <id>UI</id>
-        <build>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0-M5</version>
-                    <configuration>
-                        <suiteXmlFiles>
-                            <suiteXmlFile>src/test/resources/test_suites/pipeline_suite.xml</suiteXmlFile>
-                        </suiteXmlFiles>
-                    </configuration>
+        <profile>
+            <id>UI</id>
+            <activation>
+                <property>
+                    <name>TEST_GROUP</name>
+                    <value>UI</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>src/test/resources/test_suites/pipeline_suite.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
                     </plugin>
                 </plugins>
-             </build>
+            </build>
         </profile>
     </profiles>
 </project>
