@@ -20,5 +20,7 @@ public class PracticeFormTest extends BaseTest {
                 .clickState("NCR")
                 .clickCity("Delhi");
         Thread.sleep(5000);
+
+
     }
 }
