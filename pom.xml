@@ -100,6 +100,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/test_suites/smoke_suite.xml</suiteXmlFile>
                         <suiteXmlFile>src/test/resources/test_suites/regression_suite.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/test_suites/pipeline_suite.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
@@ -186,7 +187,7 @@
                     <version>3.0.0-M5</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>src/test/resources/test_suites/pipline_suite.xml</suiteXmlFile>
+                            <suiteXmlFile>src/test/resources/test_suites/pipeline_suite.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                     </plugin>
