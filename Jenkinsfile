@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'TEST_GROUP', defaultValue: 'UI', description: 'Группа тестов для запуска')
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -16,7 +20,8 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'mvn test -Dgroups="UI"'
+                // Используем параметр TEST_GROUP для запуска тестов
+                sh "mvn test -Dgroups=\"${params.TEST_GROUP}\""
             }
         }
 

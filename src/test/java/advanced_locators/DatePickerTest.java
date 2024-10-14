@@ -49,7 +49,7 @@ public class DatePickerTest extends BaseTest {
             }
         }
         // Закрытие браузера
-        driver.quit();
+//        driver.quit();
     }
 }
 

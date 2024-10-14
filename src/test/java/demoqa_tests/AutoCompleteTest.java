@@ -11,7 +11,7 @@ import java.util.TreeSet;
 
 public class AutoCompleteTest extends BaseTest {
 
-    @Test
+    @Test(groups = {"UI", "TC-6"})
     public void colorNamesTest() {
 
         helper.browserManager.openURL("https://demoqa.com/auto-complete");
