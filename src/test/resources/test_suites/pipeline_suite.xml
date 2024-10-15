@@ -1,6 +1,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Pipeline Test Suite" verbose="1">
     <test name="UI Tests">
+        <parameter name="TEST_GROUP" value="UI"/>
         <groups>
             <run>
                 <include name="UI"/>
@@ -12,16 +13,17 @@
             <class name="basic_locators.ByNameDemo"/>
             <class name="demoqa_tests.AccordianTests"/>
             <class name="demoqa_tests.AlertTest"/>
-<!--            <class name="demoqa_tests.AutoCompleteTest"/>-->
-<!--            <class name="demoqa_tests.BrowserWindowTest"/>-->
-<!--            <class name="demoqa_tests.ButtonsTest"/>-->
-<!--            <class name="demoqa_tests.FramesTest"/>-->
-<!--            <class name="demoqa_tests.FromPageTests"/>-->
-<!--            <class name="demoqa_tests.MenuTests"/>-->
-<!--            <class name="demoqa_tests.PracticeFormTest"/>-->
-<!--            <class name="demoqa_tests.SelectMenuTest"/>-->
-<!--            <class name="demoqa_tests.TextBoxTests"/>-->
-<!--            <class name="demoqa_tests.WebTablesTest"/>-->
+            <!-- Удалите комментарии для запуска дополнительных тестов -->
+            <!-- <class name="demoqa_tests.AutoCompleteTest"/> -->
+            <!-- <class name="demoqa_tests.BrowserWindowTest"/> -->
+            <!-- <class name="demoqa_tests.ButtonsTest"/> -->
+            <!-- <class name="demoqa_tests.FramesTest"/> -->
+            <!-- <class name="demoqa_tests.FromPageTests"/> -->
+            <!-- <class name="demoqa_tests.MenuTests"/> -->
+            <!-- <class name="demoqa_tests.PracticeFormTest"/> -->
+            <!-- <class name="demoqa_tests.SelectMenuTest"/> -->
+            <!-- <class name="demoqa_tests.TextBoxTests"/> -->
+            <!-- <class name="demoqa_tests.WebTablesTest"/> -->
         </classes>
     </test>
 </suite>
