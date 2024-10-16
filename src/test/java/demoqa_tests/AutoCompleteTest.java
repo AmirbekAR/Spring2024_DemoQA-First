@@ -12,7 +12,7 @@ import java.util.TreeSet;
 
 public class AutoCompleteTest extends BaseTest {
 
-    @Test(groups = {"UI", "TC-6"})
+    @Test
     public void colorNamesTest() throws InterruptedException {
 
         helper.browserManager.openURL("https://demoqa.com/auto-complete");

@@ -24,17 +24,17 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                script {
-                    try {
-                        sh "mvn test -Dgroups=\"${params.TEST_GROUP}\""
-                    } catch (Exception e) {
-                        error "Test execution failed: ${e.message}"
-                    }
-                }
-            }
-        }
+      stage('Run Tests') {
+          steps {
+              script {
+                  try {
+                      sh "mvn test -P${params.TEST_GROUP}"
+                  } catch (Exception e) {
+                      error "Test execution failed: ${e.message}"
+                  }
+              }
+          }
+      }
 
         stage('Allure Report') {
             steps {

@@ -12,8 +12,6 @@
             <class name="basic_locators.ByLinkedTextDemo"/>
             <class name="basic_locators.ByNameDemo"/>
             <class name="demoqa_tests.AccordianTests"/>
-            <class name="demoqa_tests.AlertTest"/>
-
         </classes>
     </test>
 </suite>

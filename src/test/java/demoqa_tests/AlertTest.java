@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class AlertTest extends BaseTest {
 
-    @Test(groups = {"UI", "TC-5"})
+    @Test
     void alertTest() throws InterruptedException {
         helper.getBrowserManager().openURL("https://demoqa.com/alerts");
         webElementActions.click(demoqaPages.getAlertPage().alertButton);

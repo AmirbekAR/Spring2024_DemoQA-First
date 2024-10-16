@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class BrowserWindowTest extends BaseTest {
 
-    @Test(groups = {"UI", "TC-7"})
+    @Test
     void windowTest() throws InterruptedException {
         helper.getBrowserManager().openURL("https://demoqa.com/browser-windows");
         for (int i = 0; i < 3; i++) {
