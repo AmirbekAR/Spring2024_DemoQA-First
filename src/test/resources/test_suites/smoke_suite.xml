@@ -6,7 +6,7 @@
             <class name="advanced_locators.DatePickerTest"/>
             <class name="basic_locators.ByLinkedTextDemo"/>
             <class name="basic_locators.ByNameDemo"/>
-<!--            <class name="demoqa_tests.AccordianTests"/>-->
+            <class name="demoqa_tests.AccordianTests"/>
             <class name="demoqa_tests.AlertTest"/>
             <class name="demoqa_tests.AutoCompleteTest"/>
             <class name="demoqa_tests.BrowserWindowTest"/>
