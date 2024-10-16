@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'TEST_GROUP', defaultValue: 'UI', description: 'Группа тестов для запуска')
+        string(name: 'TEST_GROUP', defaultValue: 'UI', description: 'UI')
     }
 
     stages {
