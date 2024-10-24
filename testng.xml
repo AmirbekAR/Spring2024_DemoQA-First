@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="UI Test Suite">
     <test name="UI Tests" verbose="2" preserve-order="true">
+        <parameter name="TEST_GROUP" value="UI"/> <!-- Указываем параметр для группы -->
         <groups>
             <run>
                 <include name="UI"/> <!-- Запускаем только UI тесты -->
@@ -10,33 +11,32 @@
         <classes>
             <class name="advanced_locators.DatePickerTest">
                 <methods>
-                    <include name="amazonXPathTest"/> <!-- Убедитесь, что метод относится к группе UI -->
+                    <include name="amazonXPathTest"/> <!-- Метод из класса DatePickerTest -->
                 </methods>
             </class>
             <class name="basic_locators.ByLinkedTextDemo">
                 <methods>
-                    <include name="byLinkedTextTest"/> <!-- Убедитесь, что метод относится к группе UI -->
+                    <include name="byLinkedTextTest"/> <!-- Метод из класса ByLinkedTextDemo -->
                 </methods>
             </class>
             <class name="demoqa_tests.AccordianTests">
                 <methods>
-                    <include name="accordianTest"/> <!-- Убедитесь, что метод относится к группе UI -->
+                    <include name="accordianTest"/> <!-- Метод из класса AccordianTests -->
                 </methods>
             </class>
-            <!-- Добавьте другие UI-тесты с группой "UI" -->
             <class name="basic_locators.ByIdDemo">
                 <methods>
-                    <include name="byIdDemoTest"/> <!-- Убедитесь, что метод относится к группе UI -->
+                    <include name="byIdDemoTest"/> <!-- Метод из класса ByIdDemo -->
                 </methods>
             </class>
             <class name="demoqa_tests.PracticeFormTest">
                 <methods>
-                    <include name="practiceFormTest"/> <!-- Убедитесь, что метод относится к группе UI -->
+                    <include name="practiceFormTest"/> <!-- Метод из класса PracticeFormTest -->
                 </methods>
             </class>
             <class name="demoqa_tests.TextBoxTests">
                 <methods>
-                    <include name="textTextBox"/> <!-- Убедитесь, что метод относится к группе UI -->
+                    <include name="textTextBox"/> <!-- Метод из класса TextBoxTests -->
                 </methods>
             </class>
             <!-- Добавьте другие классы и методы UI-тестов по необходимости -->
