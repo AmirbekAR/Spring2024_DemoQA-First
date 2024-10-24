@@ -20,7 +20,8 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh "mvn test -P${params.TEST_GROUP}" // Запуск тестов с параметром
+                // Запуск тестов с использованием testng.xml
+                sh 'mvn test -Dsurefire.suiteXmlFiles=testng.xml'
             }
         }
 
