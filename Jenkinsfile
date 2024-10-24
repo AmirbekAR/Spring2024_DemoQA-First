@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'TEST_GROUP', defaultValue: 'UI')
+        string(name: 'TEST_GROUP', defaultValue: 'UI') // Установлен параметр по умолчанию для группы
     }
 
     stages {
@@ -14,27 +14,26 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'mvn install'
+                sh 'mvn install' // Установка зависимостей
             }
         }
 
         stage('Run Tests') {
             steps {
-                // Запуск тестов с использованием testng.xml
-                sh 'mvn test -Dsurefire.suiteXmlFiles=testng.xml'
+                sh "mvn test -Dgroups=${params.TEST_GROUP}" // Запуск тестов только для указанной группы
             }
         }
 
         stage('Allure Report') {
             steps {
-                sh 'mvn allure:report'
+                sh 'mvn allure:report' // Генерация отчета Allure
             }
         }
     }
 
     post {
         always {
-            junit 'target/surefire-reports/*.xml'
+            junit 'target/surefire-reports/*.xml' // Сбор результатов тестов
             allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
         }
     }
