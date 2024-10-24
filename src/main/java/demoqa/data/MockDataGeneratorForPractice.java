@@ -24,11 +24,9 @@ public class MockDataGeneratorForPractice {
     }
 
     public static String randomDateOfBirth() {
-        // Генерация случайной даты рождения
         LocalDate dateOfBirth = faker.date().birthday().toInstant()
                 .atZone(ZoneId.systemDefault()).toLocalDate();
 
-        // Форматирование даты в нужное представление
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
         return dateOfBirth.format(formatter);  // Например: 07 Oct 2024
     }

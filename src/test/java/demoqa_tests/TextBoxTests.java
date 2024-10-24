@@ -8,6 +8,7 @@ public class TextBoxTests extends BaseTest {
     @Test(priority = 2)
     public void textTextBox() throws InterruptedException {
         helper.browserManager.openURL("https://demoqa.com/text-box");
+
         demoqaPages.textBoxPage.inputUserName("Lee Child")
                 .inputUserEmail("leeChild@gmail.com")
                 .inputCurrentAddress("Wall street 123")

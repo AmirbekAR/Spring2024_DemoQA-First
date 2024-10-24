@@ -11,8 +11,6 @@ public class SelectMenuPage extends BasePage {
     @FindBy(id = "oldSelectMenu")
     public WebElement oldStyleSelectMenu;
 
-
-
     @FindBy(id = "withOptGroup")
     public WebElement selectValueMenu;
 
@@ -47,8 +45,6 @@ public class SelectMenuPage extends BasePage {
         elementList.add(getAnotherRootOption);
         return elementList;
     }
-
-
 
     // For 'Select One' dropdown options
     @FindBy(id = "selectOne")

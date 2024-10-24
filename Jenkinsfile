@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'TEST_GROUP', defaultValue: 'UI', description: 'TC1')
+        string(name: 'TEST_GROUP', defaultValue: 'UI')
     }
 
     stages {
@@ -14,27 +14,15 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                script {
-                    try {
-                        sh 'mvn install'
-                    } catch (Exception e) {
-                        error "Failed to install dependencies: ${e.message}"
-                    }
-                }
+                sh 'mvn install'
             }
         }
 
-      stage('Run Tests') {
-          steps {
-              script {
-                  try {
-                      sh "mvn test -P${params.TEST_GROUP}"
-                  } catch (Exception e) {
-                      error "Test execution failed: ${e.message}"
-                  }
-              }
-          }
-      }
+        stage('Run Tests') {
+            steps {
+                sh "mvn test -P${params.TEST_GROUP}" // Запуск тестов с параметром
+            }
+        }
 
         stage('Allure Report') {
             steps {
