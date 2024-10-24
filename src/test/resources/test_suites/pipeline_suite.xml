@@ -9,26 +9,10 @@
             </run>
         </groups>
         <classes>
-            <class name="advanced_locators.DatePickerTest">
-                <methods>
-                    <include name="amazonXPathTest"/> <!-- Метод для теста DatePickerTest -->
-                </methods>
-            </class>
-            <class name="basic_locators.ByLinkedTextDemo">
-                <methods>
-                    <include name="byLinkedTextTest"/> <!-- Метод для теста ByLinkedTextDemo -->
-                </methods>
-            </class>
-            <class name="basic_locators.ByNameDemo">
-                <methods>
-                    <include name="demo1"/> <!-- Метод для теста ByNameDemo -->
-                </methods>
-            </class>
-            <class name="demoqa_tests.AccordianTests">
-                <methods>
-                    <include name="accordianTest"/> <!-- Метод для теста AccordianTests -->
-                </methods>
-            </class>
+            <class name="advanced_locators.DatePickerTest"/> <!-- Все методы в классе DatePickerTest -->
+            <class name="basic_locators.ByLinkedTextDemo"/> <!-- Все методы в классе ByLinkedTextDemo -->
+            <class name="basic_locators.ByNameDemo"/> <!-- Все методы в классе ByNameDemo -->
+            <class name="demoqa_tests.AccordianTests"/> <!-- Все методы в классе AccordianTests -->
         </classes>
     </test>
 </suite>
