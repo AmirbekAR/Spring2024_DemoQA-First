@@ -8,8 +8,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-import static demoqa.utils.ConfigReader.getValue;
-
 public class ChromeWebDriver {
 
         public static WebDriver loadChromeDriver() {
@@ -18,14 +16,12 @@ public class ChromeWebDriver {
                 options.addArguments("--disable-extensions");
                 options.addArguments("--window-size=1920,1080");
                 options.addArguments("--no-sandbox");
-                if (Boolean.parseBoolean(getValue("headless"))) {
-                        options.addArguments("--headless");
-                }
+
+                // Замените <your_server_ip> на фактический IP-адрес вашего сервера
+                String hubUrl = "http://167.71.27.204:4444/wd/hub";
 
                 WebDriver driver = null;
                 try {
-                        // Убедитесь, что URL правильный
-                        String hubUrl = "http://<your_server_ip>:4444/wd/hub"; // Замените на ваш IP
                         driver = new RemoteWebDriver(new URL(hubUrl), options);
                 } catch (MalformedURLException e) {
                         throw new RuntimeException("Invalid URL for RemoteWebDriver: " + e.getMessage(), e);
