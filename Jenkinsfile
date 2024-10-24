@@ -18,10 +18,9 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
+        stage('Run Smoke Tests') {
             steps {
-                // Запускаем тесты с использованием параметра TEST_GROUP
-                sh "mvn test -P${params.TEST_GROUP}"
+                sh "mvn test -DsuiteXmlFile=src/test/resources/test_suites/smoke_suite.xml"
             }
         }
 
