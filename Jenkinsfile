@@ -20,7 +20,8 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh "mvn test -DsuiteXmlFile=src/test/resources/test_suites/pipeline_suite.xml" // Указываем путь к вашему XML
+                // Запускаем тесты с использованием параметра TEST_GROUP
+                sh "mvn test -P${params.TEST_GROUP}"
             }
         }
 

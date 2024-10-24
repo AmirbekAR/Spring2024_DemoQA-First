@@ -11,7 +11,7 @@
         <classes>
             <class name="advanced_locators.DatePickerTest">
                 <methods>
-                    <include name="amazonXPathTes"/> <!-- Метод для теста DatePickerTest -->
+                    <include name="amazonXPathTest"/> <!-- Метод для теста DatePickerTest -->
                 </methods>
             </class>
             <class name="basic_locators.ByLinkedTextDemo">
