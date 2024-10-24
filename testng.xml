@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="UI Test Suite">
+
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
     <test name="UI Tests" verbose="2" preserve-order="true">
         <parameter name="TEST_GROUP" value="UI"/> <!-- Указываем параметр для группы -->
         <groups>
@@ -39,7 +44,6 @@
                     <include name="textTextBox"/> <!-- Метод из класса TextBoxTests -->
                 </methods>
             </class>
-            <!-- Добавьте другие классы и методы UI-тестов по необходимости -->
         </classes>
     </test>
 </suite>
