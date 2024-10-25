@@ -20,6 +20,9 @@ import org.testng.annotations.BeforeClass;
         @BeforeClass(alwaysRun = true)
         public void setUp() {
             driver = DriverManager.getDriver();
+            if (driver == null) {
+                throw new IllegalArgumentException("Driver must be set");
+            }
             webElementActions = new WebElementActions();
             helper = new ImportHelpers(driver);
             demoqaPages = new demoqa.module_import.DemoqaPages();

@@ -5,10 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 public class DriverManager {
 
-    // ThreadLocal для поддержки многопоточности
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    // Получаем экземпляр драйвера
     public static WebDriver getDriver() {
         if (driver.get() == null) {
             System.out.println("Initializing WebDriver");
