@@ -4,7 +4,7 @@
     <!--        <listeners>-->
     <!--            <listener class-name="demoqa.listeners.ScreenshotListener"/>-->
     <!--        </listeners>-->
-    <test verbose="2" preserve-order="true" name="/Users/amir/IdeaProjects/SJava/DemoQA First">
+    <test verbose="1" preserve-order="true" name="/Users/amir/IdeaProjects/SJava/DemoQA First">
         <classes>
             <class name="demoqa_tests.BrowserWindowTest"/>
             <class name="demoqa_tests.ButtonsTest"/>
