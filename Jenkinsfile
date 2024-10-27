@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        choice(name: 'TEST_TYPE', choices: ['Regression', 'PSmoke'], description: 'Select the type of tests to run')
+        choice(name: 'TEST_TYPE', choices: ['Pipeline'], description: 'Select the type of tests to run')
     }
 
     stages {
