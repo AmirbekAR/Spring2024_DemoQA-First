@@ -1,26 +1,23 @@
 pipeline {
     agent any
-
     parameters {
         choice(name: 'TEST_TYPE', choices: ['Smoke', 'Regression', 'Pipeline'], description: 'Select the type of tests to run')
     }
-
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/AmirbekAR/Spring2024_DemoQA.git'
+                checkout scm
             }
         }
-
         stage('Install Dependencies') {
             steps {
                 sh 'mvn install'
             }
         }
-
         stage('Run Tests') {
             steps {
                 script {
+                    echo "Running tests with profile: ${params.TEST_TYPE}"
                     if (params.TEST_TYPE == 'Pipeline') {
                         sh "mvn test -PPipeline"
                     } else if (params.TEST_TYPE == 'Smoke') {
@@ -30,19 +27,6 @@ pipeline {
                     }
                 }
             }
-        }
-
-        stage('Allure Report') {
-            steps {
-                sh 'mvn allure:report'
-            }
-        }
-    }
-
-    post {
-        always {
-            junit 'target/surefire-reports/*.xml'
-            allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
         }
     }
 }
