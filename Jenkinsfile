@@ -18,7 +18,22 @@ pipeline {
             steps {
                 script {
                     echo "Running tests with profile: ${params.TEST_TYPE}"
-                    def profile = params.TEST_TYPE == 'Pipeline' ? 'Pipeline' : params.TEST_TYPE
+                    def profile
+
+                    switch (params.TEST_TYPE) {
+                        case 'Pipeline':
+                            profile = 'Pipeline'
+                            break
+                        case 'Smoke':
+                            profile = 'Smoke'
+                            break
+                        case 'Regression':
+                            profile = 'Regression'
+                            break
+                        default:
+                            error("Unknown test type: ${params.TEST_TYPE}")
+                    }
+
                     echo "Executing: mvn test -P${profile}"
                     sh "mvn test -P${profile}"
                 }
