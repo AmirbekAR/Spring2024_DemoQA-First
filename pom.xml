@@ -172,7 +172,6 @@
                 </plugins>
             </build>
         </profile>
-
         <profile>
             <id>Regression</id>
             <build>
@@ -190,7 +189,6 @@
                 </plugins>
             </build>
         </profile>
-
         <profile>
             <id>Pipeline</id>
             <build>
