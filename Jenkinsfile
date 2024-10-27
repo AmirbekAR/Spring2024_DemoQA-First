@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         string(name: 'TEST_GROUP', defaultValue: 'UI')
-        choice(name: 'TEST_TYPE', choices: ['Smoke', 'Regression', 'Pipeline'], description: 'Select the type of tests to run')
+        choice(name: 'TEST_TYPE', choices: ['Pipeline'], description: 'Select the type of tests to run')
     }
 
     stages {
