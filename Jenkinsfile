@@ -3,6 +3,7 @@ pipeline {
 
     parameters {
         string(name: 'TEST_GROUP', defaultValue: 'UI')
+        choice(name: 'TEST_TYPE', choices: ['Smoke', 'Regression', 'Pipeline'], description: 'Select the type of tests to run')
     }
 
     stages {
@@ -18,9 +19,18 @@ pipeline {
             }
         }
 
-        stage('Run Smoke Tests') {
+        stage('Run Tests') {
             steps {
-                sh "mvn test -DsuiteXmlFile=src/test/resources/test_suites/smoke_suite.xml"
+                script {
+                    // Запуск тестов в зависимости от выбора
+                    if (params.TEST_TYPE == 'Smoke') {
+                        sh "mvn test -PSmoke"
+                    } else if (params.TEST_TYPE == 'Regression') {
+                        sh "mvn test -PRegression"
+                    } else if (params.TEST_TYPE == 'Pipeline') {
+                        sh "mvn test -PPipeline"
+                    }
+                }
             }
         }
 
