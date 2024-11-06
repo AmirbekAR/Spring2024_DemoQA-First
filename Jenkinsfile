@@ -5,6 +5,11 @@ pipeline {
         choice(name: 'TEST_TYPE', choices: ['Pipeline', 'Smoke', 'Regression'], description: 'Select the type of tests to run')
     }
 
+    environment {
+        // Устанавливаем переменную окружения для выбора профиля
+        MAVEN_OPTS = "-Duser.home=/var/jenkins_home"
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -14,8 +19,11 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                // Убедитесь, что зависимости (включая TestNG) установлены с помощью Maven
-                sh 'mvn clean install'
+                script {
+                    echo "Installing dependencies..."
+                    // Устанавливаем зависимости через Maven
+                    sh 'mvn clean install -Dmaven.repo.local=/var/jenkins_home/.m2/repository'
+                }
             }
         }
 
@@ -24,10 +32,9 @@ pipeline {
                 script {
                     echo "Running tests with profile: ${params.TEST_TYPE}"
 
-                    // Устанавливаем путь к нужному testng.xml в зависимости от выбора
+                    // Определяем путь к нужному testng.xml в зависимости от типа тестов
                     def testngFile = ""
 
-                    // Устанавливаем путь к нужному testng.xml в зависимости от выбора
                     if (params.TEST_TYPE == 'Pipeline') {
                         testngFile = 'src/test/resources/test_suites/pipeline_suite.xml'
                     } else if (params.TEST_TYPE == 'Smoke') {
@@ -40,8 +47,8 @@ pipeline {
 
                     echo "Running TestNG with: ${testngFile}"
 
-                    // Запускаем тесты через Maven с нужным профилем и файлом suite
-                    sh "mvn clean test -Dtestng.suiteXmlFiles=${testngFile} -P${params.TEST_TYPE}"
+                    // Запуск тестов через Maven
+                    sh "mvn clean test -Dtestng.suiteXmlFiles=${testngFile} -P${params.TEST_TYPE} -Dmaven.repo.local=/var/jenkins_home/.m2/repository"
                 }
             }
         }
@@ -50,7 +57,7 @@ pipeline {
             steps {
                 script {
                     echo "Generating Allure Report"
-                    // Генерируем отчет Allure с помощью Maven
+                    // Генерация Allure отчета с помощью Maven
                     sh "mvn allure:report"
                 }
             }
@@ -59,10 +66,11 @@ pipeline {
         stage('Allure Report') {
             steps {
                 script {
-                    // Сохраняем Allure отчет в Jenkins
+                    echo "Displaying Allure Report"
+                    // Отображение отчета Allure в Jenkins
                     allure([
                         includeProperties: false,
-                        results: [[path: 'target/allure-results']],  // Путь к результатам Allure
+                        results: [[path: 'target/allure-results']],  // Путь к результатам тестов
                         report: 'target/allure-report'  // Путь к отчету Allure
                     ])
                 }
