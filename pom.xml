@@ -19,11 +19,10 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version> <!-- Use the latest version -->
+            <version>1.2.3</version>
         </dependency>
 
         <dependency>
@@ -32,7 +31,6 @@
             <version>5.6.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -45,19 +43,18 @@
             <version>4.25.0</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.9.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.30</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
@@ -69,10 +66,10 @@
             <artifactId>allure-testng</artifactId>
             <version>2.20.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <!--5-->
             <version>1.9.19</version>
             <scope>runtime</scope>
         </dependency>
@@ -82,7 +79,6 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.35</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.assertj</groupId>
@@ -99,12 +95,11 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <!--suppress UnresolvedMavenProperty -->
                     <source>9</source>
-                    <!--suppress UnresolvedMavenProperty -->
                     <target>9</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -113,21 +108,15 @@
                     <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
                     <failIfNoTests>false</failIfNoTests>
                     <encoding>UTF-8</encoding>
-                    <!--                    <reuseForks>true</reuseForks>-->
-                    <!--                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>-->
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/test_suites/smoke_suite.xml</suiteXmlFile>
                         <suiteXmlFile>src/test/resources/test_suites/regression_suite.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <!-- java heap size = Xms2048m = 2GB -->
-                    <!-- JVM Option to set command line -->
-                    <!-- javaagent: used to take this jar files as paramater to pass To JVM -->
-                    <!--suppress UnresolvedMavenProperty -->
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                    <!-- Take output to target -->
+                    <!-- Заменено systemProperties на systemPropertyVariables -->
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
@@ -140,14 +129,12 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <!-- give IntelliJ acceptable to run and open allure report automatic By download allure binary in project
-            download allure binary -->
+
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>2.10.0</version>
                 <configuration>
-                    <!--suppress UnresolvedMavenProperty -->
                     <reportVersion>${allure.version}</reportVersion>
                 </configuration>
             </plugin>
@@ -158,7 +145,7 @@
         <profile>
             <id>Smoke</id>
             <properties>
-                <testGroup>UI, TC-1, TC-2, TC-3, TC-4</testGroup> <!-- указываем нужные группы -->
+                <testGroup>UI, TC-1, TC-2, TC-3, TC-4</testGroup>
             </properties>
             <build>
                 <plugins>
@@ -170,19 +157,17 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>src/test/resources/test_suites/smoke_suite.xml</suiteXmlFile>
                             </suiteXmlFiles>
-                            <systemProperties>
-                                <property>
-                                    <name>testGroup</name> <!-- передаем параметр тестовой группы -->
-                                    <value>${testGroup}</value> <!-- Используем переменную -->
-                                </property>
-                            </systemProperties>
+                            <!-- Заменено systemProperties на systemPropertyVariables -->
+                            <systemPropertyVariables>
+                                <testGroup>${testGroup}</testGroup>
+                            </systemPropertyVariables>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
         </profile>
 
-    <profile>
+        <profile>
             <id>Regression</id>
             <build>
                 <plugins>
@@ -199,6 +184,7 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>Pipeline</id>
             <build>
@@ -218,4 +204,3 @@
         </profile>
     </profiles>
 </project>
-

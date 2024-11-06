@@ -12,18 +12,22 @@ public class ChromeWebDriver {
         public static WebDriver loadChromeDriver() {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
+
+                // Устанавливаем параметры для правильной работы в Docker или headless-режиме
                 options.addArguments("--remote-allow-origins=*");
                 options.addArguments("--disable-extensions");
                 options.addArguments("--window-size=1920,1080");
                 options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+
+                // Если требуется headless-режим, добавляем соответствующий флаг
                 if (Boolean.parseBoolean(getValue("headless"))) {
                         options.addArguments("--headless");
                 }
-                // Используйте локальный ChromeDriver
+
                 WebDriver driver = new org.openqa.selenium.chrome.ChromeDriver(options);
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
                 driver.manage().window().maximize();
                 return driver;
         }
-
 }
