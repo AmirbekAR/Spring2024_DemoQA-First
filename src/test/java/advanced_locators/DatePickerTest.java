@@ -24,7 +24,7 @@ public class DatePickerTest extends BaseTest {
                 dateInput.click();
                 Thread.sleep(500); // Небольшая пауза для стабильности
                 // Ищем все дни в календаре
-                List<WebElement> days = driver.findElements(By.xpath("//div[contains(@aria-label, 'October') and contains(@aria-label, '2024')]"));
+                List<WebElement> days = driver.findElements(By.xpath("//div[contains(@aria-label, 'November') and contains(@aria-label, '2024')]"));
 
                 boolean dayFound = false; // Флаг для отслеживания, был ли найден день
                 for (WebElement day : days) {
