@@ -14,20 +14,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'mvn install'  // Если используете Maven для установки зависимостей
+                // Убедитесь, что зависимости (включая TestNG) установлены с помощью Maven
+                sh 'mvn clean install'
             }
         }
 
         stage('Run Tests') {
             steps {
                 script {
-                    // Логируем информацию о выбранном тесте
                     echo "Running tests with profile: ${params.TEST_TYPE}"
 
-                    // Устанавливаем путь к нужному testng.xml в зависимости от выбора
                     def testngFile = ""
 
-                    // Используем if-else для выбора файла
+                    // Устанавливаем путь к нужному testng.xml в зависимости от выбора
                     if (params.TEST_TYPE == 'Pipeline') {
                         testngFile = 'src/test/resources/test_suites/pipeline_suite.xml'
                     } else if (params.TEST_TYPE == 'Smoke') {
@@ -38,14 +37,13 @@ pipeline {
                         error("Unknown test type: ${params.TEST_TYPE}")
                     }
 
-                    // Логируем какой файл теста будет использоваться
                     echo "Running TestNG with: ${testngFile}"
 
-                    // Получаем classpath и логируем его для диагностики
+                    // Получаем classpath
                     def classpath = "target/classes:" + sh(script: "echo target/*.jar | tr ' ' ':'", returnStdout: true).trim()
                     echo "Classpath: ${classpath}"
 
-                    // Запускаем тесты через TestNG с выбранным testng.xml
+                    // Запускаем TestNG с нужным testng.xml
                     sh "java -cp '${classpath}' org.testng.TestNG ${testngFile}"
                 }
             }
@@ -55,7 +53,6 @@ pipeline {
             steps {
                 script {
                     echo "Generating Allure Report"
-                    // Генерация отчета Allure, если это необходимо
                     sh "allure serve target/allure-results"
                 }
             }

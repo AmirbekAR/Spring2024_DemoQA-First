@@ -19,6 +19,15 @@
     </properties>
 
     <dependencies>
+        <!-- TestNG Dependency -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.9.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Другие зависимости остаются без изменений -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -41,12 +50,6 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-devtools-v129</artifactId>
             <version>4.25.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.9.0</version>
         </dependency>
 
         <dependency>
@@ -85,21 +88,22 @@
             <artifactId>assertj-core</artifactId>
             <version>3.22.0</version>
         </dependency>
-
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Плагин для компиляции -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <source>9</source>
-                    <target>9</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
 
+            <!-- Плагин для запуска тестов -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -108,28 +112,22 @@
                     <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
                     <failIfNoTests>false</failIfNoTests>
                     <encoding>UTF-8</encoding>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/test_suites/smoke_suite.xml</suiteXmlFile>
                         <suiteXmlFile>src/test/resources/test_suites/regression_suite.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/test_suites/pipeline_suite.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <testFailureIgnore>true</testFailureIgnore>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
-                    <!-- Заменено systemProperties на systemPropertyVariables -->
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.19</version>
-                    </dependency>
-                </dependencies>
             </plugin>
 
+            <!-- Плагин для генерации Allure отчета -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
@@ -144,9 +142,6 @@
     <profiles>
         <profile>
             <id>Smoke</id>
-<!--            <properties>-->
-<!--                <testGroup>UI, TC-1, TC-2, TC-3, TC-4</testGroup>-->
-<!--            </properties>-->
             <build>
                 <plugins>
                     <plugin>
@@ -157,10 +152,6 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>src/test/resources/test_suites/smoke_suite.xml</suiteXmlFile>
                             </suiteXmlFiles>
-                            <!-- Заменено systemProperties на systemPropertyVariables -->
-<!--                            <systemPropertyVariables>-->
-<!--                                <testGroup>${testGroup}</testGroup>-->
-<!--                            </systemPropertyVariables>-->
                         </configuration>
                     </plugin>
                 </plugins>
