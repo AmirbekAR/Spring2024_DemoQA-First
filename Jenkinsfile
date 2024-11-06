@@ -24,6 +24,7 @@ pipeline {
                 script {
                     echo "Running tests with profile: ${params.TEST_TYPE}"
 
+                    // Устанавливаем путь к нужному testng.xml в зависимости от выбора
                     def testngFile = ""
 
                     // Устанавливаем путь к нужному testng.xml в зависимости от выбора
@@ -39,12 +40,8 @@ pipeline {
 
                     echo "Running TestNG with: ${testngFile}"
 
-                    // Получаем classpath
-                    def classpath = "target/classes:" + sh(script: "echo target/*.jar | tr ' ' ':'", returnStdout: true).trim()
-                    echo "Classpath: ${classpath}"
-
-                    // Запускаем TestNG с нужным testng.xml
-                    sh "java -cp '${classpath}' org.testng.TestNG ${testngFile}"
+                    // Запускаем тесты через Maven с нужным профилем и файлом suite
+                    sh "mvn clean test -Dtestng.suiteXmlFiles=${testngFile} -P${params.TEST_TYPE}"
                 }
             }
         }
@@ -53,9 +50,29 @@ pipeline {
             steps {
                 script {
                     echo "Generating Allure Report"
-                    sh "allure serve target/allure-results"
+                    // Генерируем отчет Allure с помощью Maven
+                    sh "mvn allure:report"
                 }
             }
+        }
+
+        stage('Allure Report') {
+            steps {
+                script {
+                    // Сохраняем Allure отчет в Jenkins
+                    allure([
+                        includeProperties: false,
+                        results: [[path: 'target/allure-results']],  // Путь к результатам Allure
+                        report: 'target/allure-report'  // Путь к отчету Allure
+                    ])
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()  // Очистка рабочего пространства после выполнения
         }
     }
 }
