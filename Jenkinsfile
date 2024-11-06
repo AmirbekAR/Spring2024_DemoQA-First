@@ -14,7 +14,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'mvn install'  // Эта команда будет работать, если вы все же используете Maven для установки зависимостей. Если нет, пропустите.
+                sh 'mvn install'  // Если используете Maven для установки зависимостей
             }
         }
 
@@ -26,25 +26,26 @@ pipeline {
 
                     // Устанавливаем путь к нужному testng.xml в зависимости от выбора
                     def testngFile = ""
-                    switch (params.TEST_TYPE) {
-                        case 'Pipeline':
-                            testngFile = 'src/test/resources/test_suites/pipeline_suite.xml'
-                            break
-                        case 'Smoke':
-                            testngFile = 'src/test/resources/test_suites/smoke_suite.xml'
-                            break
-                        case 'Regression':
-                            testngFile = 'src/test/resources/test_suites/regression_suite.xml'
-                            break
-                        default:
-                            error("Unknown test type: ${params.TEST_TYPE}")
+
+                    // Используем if-else для выбора файла
+                    if (params.TEST_TYPE == 'Pipeline') {
+                        testngFile = 'src/test/resources/test_suites/pipeline_suite.xml'
+                    } else if (params.TEST_TYPE == 'Smoke') {
+                        testngFile = 'src/test/resources/test_suites/smoke_suite.xml'
+                    } else if (params.TEST_TYPE == 'Regression') {
+                        testngFile = 'src/test/resources/test_suites/regression_suite.xml'
+                    } else {
+                        error("Unknown test type: ${params.TEST_TYPE}")
                     }
 
                     // Логируем какой файл теста будет использоваться
                     echo "Running TestNG with: ${testngFile}"
 
-                    // Запускаем тесты через TestNG с выбранным testng.xml
+                    // Получаем classpath и логируем его для диагностики
                     def classpath = "target/classes:" + sh(script: "echo target/*.jar | tr ' ' ':'", returnStdout: true).trim()
+                    echo "Classpath: ${classpath}"
+
+                    // Запускаем тесты через TestNG с выбранным testng.xml
                     sh "java -cp '${classpath}' org.testng.TestNG ${testngFile}"
                 }
             }
