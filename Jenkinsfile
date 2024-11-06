@@ -5,10 +5,6 @@ pipeline {
         choice(name: 'TEST_TYPE', choices: ['Pipeline', 'Smoke', 'Regression'], description: 'Select the type of tests to run')
     }
 
-    environment {
-        MAVEN_OPTS = "-Duser.home=/var/jenkins_home"
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -18,23 +14,37 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                script {
-                    echo "Installing dependencies..."
-                    // Устанавливаем зависимости через Maven
-                    sh 'mvn clean install -Dmaven.repo.local=/var/jenkins_home/.m2/repository'
-                }
+                // Установка зависимостей с явным указанием профиля (если необходимо)
+                sh 'mvn clean install'  // Или с профилем: mvn clean install -P<profile>
             }
         }
 
         stage('Run Tests') {
             steps {
                 script {
+                    // Логируем информацию о выбранном тесте
                     echo "Running tests with profile: ${params.TEST_TYPE}"
 
-                    // Запуск тестов через Maven с передачей параметра профиля
-                    sh """
-                        mvn clean test -P${params.TEST_TYPE} -Dmaven.repo.local=/var/jenkins_home/.m2/repository
-                    """
+                    // Устанавливаем путь к нужному testng.xml в зависимости от выбора
+                    def testngFile = ""
+
+                    // Используем if-else для выбора файла
+                    if (params.TEST_TYPE == 'Pipeline') {
+                        testngFile = 'src/test/resources/test_suites/pipeline_suite.xml'
+                    } else if (params.TEST_TYPE == 'Smoke') {
+                        testngFile = 'src/test/resources/test_suites/smoke_suite.xml'
+                    } else if (params.TEST_TYPE == 'Regression') {
+                        testngFile = 'src/test/resources/test_suites/regression_suite.xml'
+                    } else {
+                        error("Unknown test type: ${params.TEST_TYPE}")
+                    }
+
+                    // Логируем какой файл теста будет использоваться
+                    echo "Running TestNG with: ${testngFile}"
+
+                    // Запускаем тесты через TestNG с выбранным testng.xml
+                    def classpath = "target/classes:" + sh(script: "echo target/*.jar | tr ' ' ':'", returnStdout: true).trim()
+                    sh "java -cp '${classpath}' org.testng.TestNG ${testngFile}"
                 }
             }
         }
@@ -43,28 +53,10 @@ pipeline {
             steps {
                 script {
                     echo "Generating Allure Report"
-                    sh "mvn allure:report"
+                    // Генерация отчета Allure
+                    sh "allure serve target/allure-results"
                 }
             }
-        }
-
-        stage('Allure Report') {
-            steps {
-                script {
-                    echo "Displaying Allure Report"
-                    allure([
-                        includeProperties: false,
-                        results: [[path: 'target/allure-results']],
-                        report: 'target/allure-report'
-                    ])
-                }
-            }
-        }
-    }
-
-    post {
-        always {
-            cleanWs()  // Очистка рабочего пространства после выполнения
         }
     }
 }
