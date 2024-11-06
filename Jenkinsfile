@@ -20,6 +20,7 @@ pipeline {
                     echo "Running tests with profile: ${params.TEST_TYPE}"
                     def profile
 
+                    // Определяем профиль в зависимости от выбора
                     switch (params.TEST_TYPE) {
                         case 'Pipeline':
                             profile = 'Pipeline'
@@ -34,6 +35,7 @@ pipeline {
                             error("Unknown test type: ${params.TEST_TYPE}")
                     }
 
+                    // Запуск тестов с выбранным профилем
                     echo "Executing: mvn test -P${profile}"
                     sh "mvn test -P${profile}"
                 }
