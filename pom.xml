@@ -144,9 +144,9 @@
     <profiles>
         <profile>
             <id>Smoke</id>
-            <properties>
+<!--            <properties>-->
 <!--                <testGroup>UI, TC-1, TC-2, TC-3, TC-4</testGroup>-->
-            </properties>
+<!--            </properties>-->
             <build>
                 <plugins>
                     <plugin>
