@@ -31,12 +31,9 @@ pipeline {
                 script {
                     echo "Running tests with profile: ${params.TEST_TYPE}"
 
-                    // Выводим значение параметра для диагностики
-                    echo "Selected TEST_TYPE: ${params.TEST_TYPE}"
-
                     // Запуск тестов через Maven с передачей параметра профиля
                     sh """
-                        mvn clean test -P${params.TEST_TYPE} -Dmaven.repo.local=/var/jenkins_home/.m2/repository -X
+                        mvn clean test -P${params.TEST_TYPE} -Dmaven.repo.local=/var/jenkins_home/.m2/repository
                     """
                 }
             }

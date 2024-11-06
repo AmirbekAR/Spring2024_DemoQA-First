@@ -112,11 +112,6 @@
                     <failIfNoTests>false</failIfNoTests>
                     <encoding>UTF-8</encoding>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/test_suites/smoke_suite.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/resources/test_suites/regression_suite.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/resources/test_suites/pipeline_suite.xml</suiteXmlFile>
-                    </suiteXmlFiles>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
@@ -137,6 +132,7 @@
             </plugin>
         </plugins>
     </build>
+
     <profiles>
         <profile>
             <id>Smoke</id>

@@ -16,14 +16,10 @@ public class ChromeWebDriver {
                 options.addArguments("--disable-extensions");
                 options.addArguments("--window-size=1920,1080");
                 options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--headless");
-                options.addArguments("--disable-gpu");  // Отключаем GPU
-                options.addArguments("--remote-debugging-port=9222");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-
-
+                if (Boolean.parseBoolean(getValue("headless"))) {
+                        options.addArguments("--headless");
+                }
+                // Используйте локальный ChromeDriver
                 WebDriver driver = new org.openqa.selenium.chrome.ChromeDriver(options);
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
                 driver.manage().window().maximize();
