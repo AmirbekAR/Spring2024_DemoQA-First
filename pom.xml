@@ -157,6 +157,9 @@
     <profiles>
         <profile>
             <id>Smoke</id>
+            <properties>
+                <testGroup>UI, TC-1, TC-2, TC-3, TC-4</testGroup> <!-- указываем нужные группы -->
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -167,12 +170,19 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>src/test/resources/test_suites/smoke_suite.xml</suiteXmlFile>
                             </suiteXmlFiles>
+                            <systemProperties>
+                                <property>
+                                    <name>testGroup</name> <!-- передаем параметр тестовой группы -->
+                                    <value>${testGroup}</value> <!-- Используем переменную -->
+                                </property>
+                            </systemProperties>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
         </profile>
-        <profile>
+
+    <profile>
             <id>Regression</id>
             <build>
                 <plugins>
