@@ -44,10 +44,8 @@ pipeline {
                     echo "Running TestNG with: ${testngFile}"
 
                     // Запускаем тесты через TestNG с выбранным testng.xml
-                    // Путь к тестовым классам и артефактам
-                    sh """
-                    java -cp 'target/classes:$(echo target/*.jar | tr ' ' ':')' org.testng.TestNG ${testngFile}
-                    """
+                    def classpath = "target/classes:" + sh(script: "echo target/*.jar | tr ' ' ':'", returnStdout: true).trim()
+                    sh "java -cp '${classpath}' org.testng.TestNG ${testngFile}"
                 }
             }
         }
